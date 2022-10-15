@@ -197,7 +197,7 @@ export const clearAllTask = async (parent) => {
     ///task/clearCompleted
     const res = await axios({
       method: "DELETE",
-      url: `/api/v1/task/tasks/clearCompleted`,
+      url: "/api/v1/task/tasks/clearCompleted",
     });
 
     if (res.data.status == "ok") {
