@@ -10,9 +10,7 @@ export const createTask = async (content, endDate, today) => {
         endDate,
       },
     });
-  } catch (err) {
-   
-  }
+  } catch (err) {}
 };
 
 export const todayTask = async (parent) => {
@@ -183,7 +181,7 @@ export const deleteTask = async (id, parent) => {
   try {
     const res = await axios({
       method: "DELETE",
-      url: `http://127.0.0.1:8000/api/v1/task/${id}`,
+      url: `/api/v1/task/${id}`,
     });
 
     if (res.data.status == "ok") {
@@ -199,7 +197,7 @@ export const clearAllTask = async (parent) => {
     ///task/clearCompleted
     const res = await axios({
       method: "DELETE",
-      url: `http://127.0.0.1:8000/api/v1/task/tasks/clearCompleted`,
+      url: `/api/v1/task/tasks/clearCompleted`,
     });
 
     if (res.data.status == "ok") {
