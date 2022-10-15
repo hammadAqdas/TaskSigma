@@ -53,17 +53,17 @@ exports.login = async(req,res)=>{
 
 exports.isLoggedInUser = async(req,res,next)=>{
     try{
-        console.log('uuuuu')
+        
    
         if(req.cookies.jwt) {
             const token = req.cookies.jwt;
             const decoded=await promisify(jwt.verify)(token,process.env.JWT_SECRET);
-            console.log("decodevv---",decoded)
+            
             const user = await User.findById(decoded.id);
-            console.log('user--',user)
+            
             if(!user) return next();
             req.currentUser = user;
-            console.log('ooo')
+           
            return next();
     
         }
@@ -71,7 +71,7 @@ exports.isLoggedInUser = async(req,res,next)=>{
        
 
     }catch(err){
-        console.log('hmm.....')
+        
       return next();
       
 

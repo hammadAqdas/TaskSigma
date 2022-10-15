@@ -132,18 +132,18 @@ exports.mytask = async(req,res)=>{
          const now = new Date();
         // let month = now.getMonth()+1;
         let todayDate = new Date(now.getFullYear(),now.getMonth(),now.getDate());
-        console.log('yyyy--',req.currentUser)
+        
         query =  Task.find({user:req.currentUser._id});
        
         const tasks = req.query;
         if(tasks.task=='today'){
-            console.log(todayDate)
-                console.log(todayDate)
+           
+                
                 query = query.find({endDate:todayDate,completed:'false'});
 
         }
         else if(tasks.task=='upcoming'){
-            console.log('upcoming-----')
+            
             console.log(todayDate.getDate(),todayDate.getFullYear(),todayDate.getMonth())
             query = query.find({endDate:{$gt:todayDate},completed:'false'})
         }
@@ -175,7 +175,7 @@ exports.markDone = async(req,res)=>{
     try{
         if(!req.currentUser) throw new Error('please login');
         const id = req.params.taskid;
-        console.log('oop--',id)
+        
         const task = await Task.findById(id);
         if(!task) throw new Error('task not found!');
         task.completed = true;

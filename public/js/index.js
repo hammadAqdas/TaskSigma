@@ -1,4 +1,4 @@
-console.log('hello from parcel')
+
 import '@babel/polyfill'
 
 import {signup,login,logout,switchDark} from './auth'
@@ -20,7 +20,7 @@ if(signupForm){
     const eyeO = document.querySelector('.eye-open');
     form.addEventListener('submit',function(e){
         e.preventDefault();
-        console.log('clicked')
+        
         signup(name.value,email.value,password.value);
 
 
@@ -45,7 +45,7 @@ if(loginForm){
     const eyeO = document.querySelector('.eye-open');
     form.addEventListener('submit',function(e){
         e.preventDefault();
-        console.log('login-from');
+        
         login(email.value,password.value);
 
     })
@@ -65,7 +65,7 @@ if(loginForm){
 //DASHBOARD.....
 if(dashboardWrapper){
 
-    console.log('dashboard--present....');
+    
    const send = document.querySelector('.send-svg');
    const todayBtn = document.querySelector('.today-title');
 
@@ -145,14 +145,14 @@ const todayWrapper = document.querySelector('.today')
 
 
 today.addEventListener('click',async function(){
-    console.log('today-clicked!');
+    
     await todayTask(todayWrapper);
 const doneP = document.querySelectorAll('.mad');
 doneP.forEach((md)=>{
     md.addEventListener('click',function(){
         const parent = md.closest('.task-card');
         const id = md.getAttribute('id');
-        console.log('pp---',id)
+       
         markDone(parent,id);
         
     })
@@ -162,7 +162,7 @@ if(deleteBtn){
     console.log(deleteBtn)
   deleteBtn.forEach((task)=>{
     task.addEventListener('click', function(){
-        console.log('delete-clickde')
+        
         const parent = this.closest('.task-card');
         deleteTask(this.getAttribute('id'),parent);
     })
@@ -178,7 +178,7 @@ if(deleteBtn){
 const upcoming = document.querySelector('.upcoming-title');
 const upcomingWrapper = document.querySelector('.upcoming')
 upcoming.addEventListener('click',function(){
-    console.log('upcoming-clicked!');
+    
    upcomingTask(upcomingWrapper)
     
 })
@@ -187,7 +187,7 @@ const completed = document.querySelector('.completed-title')
 const completedWrapper = document.querySelector('.completed')
 const clearAll = document.querySelector('.clear-all p');
 completed.addEventListener('click',async function(){
-    console.log('completed-clicked!');
+    
   await completedTask(completedWrapper);
  
 if(!document.querySelector('.completed-wrapper .note-err')){
@@ -199,7 +199,7 @@ else{
 }
 
 clearAll.addEventListener('click',function(){
-    console.log('clicked clear-all')
+    
     const parent = document.querySelector('.completed');
     clearAllTask(parent);
     document.querySelector('.completed-wrapper .clear-all').classList.remove('clear-all-state')
@@ -210,14 +210,14 @@ clearAll.addEventListener('click',function(){
 const pending = document.querySelector('.pending-title')
 const pendingWrapper = document.querySelector('.pending')
 pending.addEventListener('click',async function(){
-    console.log('pending-clicked!');
+   
 await pendingTask(pendingWrapper);
 const doneP = document.querySelectorAll('.mad');
 doneP.forEach((md)=>{
     md.addEventListener('click',function(){
         const parent = md.closest('.task-card');
         const id = md.getAttribute('id');
-        console.log('ooo--',id)
+        
         markDone(parent,id);
         
     })
@@ -239,7 +239,7 @@ doneP.forEach((md)=>{
 //LOGOUT..........
 const logoutBtn = document.querySelector('.logout-btn');
 logoutBtn.addEventListener('click',function(){
-    console.log('clicked loggedout-btn');
+   
     logout();
 })
 const menuList = document.querySelectorAll('.menu li');
@@ -248,7 +248,7 @@ menuList.forEach((list)=>{
         const curListState = document.querySelector('.menu-state');
         curListState.classList.remove('menu-state');
         this.classList.add('menu-state');
-        console.log(this,curListState)
+        
     })
 })
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
